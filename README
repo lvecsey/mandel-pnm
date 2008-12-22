@@ -1,0 +1,19 @@
+
+For very large frames or images, such as desktop backgrounds, there are limits
+with CLISP on 32bit machines. In such cases the image data can optionally not
+be allocated and rather it will be written to a file or standard output directly.
+
+To generate a desktop background, edit the ./quad-desktop.sh file to specify
+your desktop resolution and then run that script to create an image0.pnm file.
+Convert it as needed to actually use it. For example:
+
+	convert image0.pnm desktop-background.png
+	display -window root ./desktop-background.png
+
+Run the ./create-video.sh file to start rendering a complete movie. Most of the
+work is described in the ./mandelpnm.sh file, which by default uses the
++keyframes+ variable from mandelpnm.lisp as a set of zoomed in frames. You can
+explore a bit in Fractint and then define a similar variable for use
+in the script file instead.
+
+
